@@ -1,7 +1,7 @@
 agent:
   image: beverts312/vso-agent
   environment:
-    - USERNAME: beverts312
-	- PASSWORD: ${PASSWORD}
-	- URL: https://beverts.visualstudio.com
-	- POOL: linux
+    - USERNAME=beverts312
+    - PASSWORD=${PASSWORD}
+    - URL=https://beverts.visualstudio.com
+    - POOL=linux
