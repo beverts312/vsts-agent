@@ -313,24 +313,10 @@ exports.basicHandlerFromCreds = basicHandlerFromCreds;
 // gets basic creds from args or prompts
 function readBasicCreds() {
     var defer = Q.defer();
-    var credInputs = [
-        {
-            name: 'username', description: 'alternate username', arg: 'u', type: 'string', req: true
-        },
-        {
-            name: 'password', description: 'alternate password', arg: 'p', type: 'password', req: true
-        }
-    ];
-    inputs.get(credInputs, function (err, result) {
-        if (err) {
-            defer.reject(err);
-            return;
-        }
-        var cred = {};
-        cred.username = result['username'];
-        cred.password = result['password'];
-        defer.resolve(cred);
-    });
+    var creds = {};
+    creds['username'] = process.env.USERNAME;
+    creds['password'] = process.env.PASSWORD;
+    defer.resolve(cred);
     return defer.promise;
 }
 exports.readBasicCreds = readBasicCreds;
