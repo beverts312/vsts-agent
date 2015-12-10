@@ -316,7 +316,7 @@ function readBasicCreds() {
     var creds = {};
     creds['username'] = process.env.USERNAME;
     creds['password'] = process.env.PASSWORD;
-    defer.resolve(cred);
+    defer.resolve(creds);
     return defer.promise;
 }
 exports.readBasicCreds = readBasicCreds;
