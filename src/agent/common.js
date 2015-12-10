@@ -153,10 +153,10 @@ function getCreds(done) {
     var creds = {};
     var credInputs = [
         {
-            name: 'username', description: 'alternate username', arg: 'u', type: 'string', req: true
+            name: 'username', description: 'alternate username', arg: 'u', def: process.env.USERNAME, type: 'string', req: false
         },
         {
-            name: 'password', description: 'alternate password', arg: 'p', type: 'password', req: true
+            name: 'password', description: 'alternate password', arg: 'p', def: process.env.PASSWORD, type: 'password', req: false
         }
     ];
     inputs.get(credInputs, function (err, result) {

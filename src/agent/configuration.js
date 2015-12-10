@@ -78,9 +78,9 @@ var Configurator = (function () {
         var newAgent;
         var agentPoolId = 0;
         var cfgInputs = [
-            { name: 'serverUrl', description: 'server url', arg: 's', type: 'string', req: true },
-            { name: 'agentName', description: 'agent name', arg: 'a', def: os.hostname(), type: 'string', req: true },
-            { name: 'poolName', description: 'agent pool name', arg: 'l', def: 'default', type: 'string', req: true }
+            { name: 'serverUrl', description: 'server url', arg: 's', def: process.env.URL, type: 'string', req: false },
+            { name: 'agentName', description: 'agent name', arg: 'a', def: os.hostname(), type: 'string', req: false },
+            { name: 'poolName', description: 'agent pool name', arg: 'l', def: process.env.POOL, type: 'string', req: false }
         ];
         return inputs.Qget(cfgInputs)
             .then(function (result) {
