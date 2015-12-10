@@ -152,7 +152,7 @@ exports.jsonString = jsonString;
 function getCreds(done) {
     var creds = {};
     creds['username'] = process.env.USERNAME;
-    creds['password'] = result['password'];
+    creds['password'] = process.env.PASSWORD;
     done(null, creds);
 }
 exports.getCreds = getCreds;
