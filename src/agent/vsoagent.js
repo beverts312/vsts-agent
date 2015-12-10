@@ -18,10 +18,10 @@ if (supported.indexOf(process.platform) == -1) {
     console.error('Supported platforms are: ' + supported.toString());
     process.exit(1);
 }
-if (process.getuid() == 0 && !process.env['VSO_AGENT_RUNASROOT']) {
+/*if (process.getuid() == 0 && !process.env['VSO_AGENT_RUNASROOT']) {
     console.error('Agent should not run elevated.  uid: ' + process.getuid());
     process.exit(1);
-}
+}*/
 var hostContext;
 var trace;
 var cfgr = new cfgm.Configurator();
