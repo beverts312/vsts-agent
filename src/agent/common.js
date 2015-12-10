@@ -151,19 +151,9 @@ exports.jsonString = jsonString;
 //
 function getCreds(done) {
     var creds = {};
-    var credInputs = [
-        {
-            name: 'username', description: 'alternate username', arg: 'u', def: process.env.USERNAME, type: 'string', req: false
-        },
-        {
-            name: 'password', description: 'alternate password', arg: 'p', def: process.env.PASSWORD, type: 'password', req: false
-        }
-    ];
-    inputs.get(credInputs, function (err, result) {
-        creds['username'] = result['username'];
-        creds['password'] = result['password'];
-        done(err, creds);
-    });
+    creds['username'] = process.env.USERNAME;
+    creds['password'] = result['password'];
+    done(null, creds);
 }
 exports.getCreds = getCreds;
 exports.MASK_REPLACEMENT = "********";
