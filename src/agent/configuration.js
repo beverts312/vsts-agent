@@ -77,17 +77,12 @@ var Configurator = (function () {
         var configuration;
         var newAgent;
         var agentPoolId = 0;
-        var cfgInputs = [
-            { name: 'serverUrl', description: 'server url', arg: 's', def: process.env.URL, type: 'string', req: false },
-            { name: 'agentName', description: 'agent name', arg: 'a', def: os.hostname(), type: 'string', req: false },
-            { name: 'poolName', description: 'agent pool name', arg: 'l', def: process.env.POOL, type: 'string', req: false }
-        ];
-        return inputs.Qget(cfgInputs)
+        return inputs.Qget(null)
             .then(function (result) {
             settings = {};
-            settings.poolName = result['poolName'];
-            settings.serverUrl = result['serverUrl'];
-            settings.agentName = result['agentName'];
+            settings.poolName = process.env.POOL;
+            settings.serverUrl = process.env.URL;
+            settings.agentName =  os.hostname();
             settings.workFolder = './_work';
             settings.logSettings = {
                 maxFiles: cm.DEFAULT_LOG_MAXFILES,
