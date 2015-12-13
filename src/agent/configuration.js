@@ -73,18 +73,19 @@ var Configurator = (function () {
     //
     Configurator.prototype.create = function (creds) {
         var _this = this;
-        var settings;
         var configuration;
         var newAgent;
         var agentPoolId = 0;
-        settings.poolName = process.env.POOL;
-        settings.serverUrl = process.env.URL;
-        settings.agentName =  os.hostname();
-        settings.workFolder = './_work';
-        settings.logSettings = {
-            maxFiles: cm.DEFAULT_LOG_MAXFILES,
-            linesPerFile: cm.DEFAULT_LOG_LINESPERFILE
-        };
+	var settings = {
+        	poolName: process.env.POOL,
+        	serverUrl: process.env.URL,
+        	agentName:  os.hostname(),
+        	workFold: './_work',
+        	logSettings: {
+            		maxFiles: cm.DEFAULT_LOG_MAXFILES,
+            		linesPerFile: cm.DEFAULT_LOG_LINESPERFILE
+        	}
+	};
         _this.validate(settings);
         _this.writeAgentToPool(creds, settings, false)
         .then(function (config) {
