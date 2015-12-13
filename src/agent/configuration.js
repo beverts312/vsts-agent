@@ -80,14 +80,14 @@ var Configurator = (function () {
         	poolName: process.env.POOL,
         	serverUrl: process.env.URL,
         	agentName:  os.hostname(),
-        	workFold: './_work',
+        	workFolder: './_work',
         	logSettings: {
             		maxFiles: cm.DEFAULT_LOG_MAXFILES,
             		linesPerFile: cm.DEFAULT_LOG_LINESPERFILE
         	}
 	};
         _this.validate(settings);
-        _this.writeAgentToPool(creds, settings, false)
+        return _this.writeAgentToPool(creds, settings, false)
         .then(function (config) {
             configuration = config;
             console.log('Creating work folder ' + settings.workFolder + ' ...');
