@@ -77,34 +77,30 @@ var Configurator = (function () {
         var configuration;
         var newAgent;
         var agentPoolId = 0;
-        return inputs.Qget(null)
-            .then(function (result) {
-            settings = {};
-            settings.poolName = process.env.POOL;
-            settings.serverUrl = process.env.URL;
-            settings.agentName =  os.hostname();
-            settings.workFolder = './_work';
-            settings.logSettings = {
-                maxFiles: cm.DEFAULT_LOG_MAXFILES,
-                linesPerFile: cm.DEFAULT_LOG_LINESPERFILE
-            };
-            _this.validate(settings);
-            return _this.writeAgentToPool(creds, settings, false);
-        })
-            .then(function (config) {
+        settings.poolName = process.env.POOL;
+        settings.serverUrl = process.env.URL;
+        settings.agentName =  os.hostname();
+        settings.workFolder = './_work';
+        settings.logSettings = {
+            maxFiles: cm.DEFAULT_LOG_MAXFILES,
+            linesPerFile: cm.DEFAULT_LOG_LINESPERFILE
+        };
+        _this.validate(settings);
+        _this.writeAgentToPool(creds, settings, false)
+        .then(function (config) {
             configuration = config;
             console.log('Creating work folder ' + settings.workFolder + ' ...');
             return utilm.ensurePathExists(settings.workFolder);
         })
-            .then(function () {
+        .then(function () {
             console.log('Creating env file ' + envPath + '...');
             return env.ensureEnvFile(envPath);
         })
-            .then(function () {
+        .then(function () {
             console.log('Saving configuration ...');
             return utilm.objectToFile(configPath, settings);
         })
-            .then(function () {
+        .then(function () {
             return configuration;
         });
     };
