@@ -1,7 +1,15 @@
 agent:
-  image: beverts312/vso-agent
+  image: beverts312/vsts-agent
   environment:
     - USERNAME=beverts312
     - PASSWORD=${PASSWORD}
     - URL=https://beverts.visualstudio.com
-    - POOL=linux
+    - POOL=xplat
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+  privileged: true
+  restart: always
+  log_driver: "awslogs"
+  log_opt:
+    awslogs-group: "builds"
+    awslogs-region: "us-east-1"
