@@ -314,8 +314,8 @@ exports.basicHandlerFromCreds = basicHandlerFromCreds;
 function readBasicCreds() {
     var defer = Q.defer();
     var creds = {};
-    creds['username'] = process.env.USERNAME;
-    creds['password'] = process.env.PASSWORD;
+    creds['username'] = process.env.VSTS_USERNAME;
+    creds['password'] = process.env.VSTS_PASSWORD;
     defer.resolve(creds);
     return defer.promise;
 }
