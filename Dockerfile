@@ -1,6 +1,7 @@
 FROM beverts312/node
 
-RUN npm install vsoagent-installer -g
+RUN npm install vsoagent-installer -g &&\
+    apk add --update git
 
 ADD /src /vso-agent
 
