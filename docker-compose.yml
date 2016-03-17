@@ -1,8 +1,8 @@
 agent:
   image: beverts312/vsts-agent
   environment:
-    - USERNAME=beverts312
-    - PASSWORD=${PASSWORD}
+    - VSTS_USERNAME=beverts312
+    - VSTS_PASSWORD=${PASSWORD}
     - URL=https://beverts.visualstudio.com
     - POOL=xplat
   volumes:

@@ -151,8 +151,8 @@ exports.jsonString = jsonString;
 //
 function getCreds(done) {
     var creds = {};
-    creds['username'] = process.env.USERNAME;
-    creds['password'] = process.env.PASSWORD;
+    creds['username'] = process.env.VSTS_USERNAME;
+    creds['password'] = process.env.VSTS_PASSWORD;
     done(null, creds);
 }
 exports.getCreds = getCreds;
