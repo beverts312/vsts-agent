@@ -1,5 +1,5 @@
 Configure using the following environmental variables:  
-* USERNAME  
-* PASSWORD  
+* VSTS_USERNAME  
+* VSTS_PASSWORD  
 * URL  
 * POOL
