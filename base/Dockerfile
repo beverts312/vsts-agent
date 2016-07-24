@@ -16,10 +16,9 @@ WORKDIR myagent
 
 RUN tar xzf /agent.tar.gz &&\
     useradd -ms /bin/bash agent &&\
+    usermod -aG docker agent &&\
     chown agent /myagent &&\
     chmod +x init.sh &&\
     rm /agent.tar.gz
-
 USER agent
-
 CMD ./init.sh

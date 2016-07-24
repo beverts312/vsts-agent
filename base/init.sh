@@ -9,7 +9,7 @@ elif [[ -z $VSTS_POOL ]] ; then
    echo "Must set VSTS_POOL as env variable"
    exit 1
 fi
-
+sudo chown agent /var/run/docker.sock
 ./config.sh --url "$VSTS_URL" \
             --pool "$VSTS_POOL" \
             --replace \
