@@ -5,11 +5,11 @@ ENV PATH /sonar-scanner-$SONAR_SCANNER_VERSION/bin:$PATH
 
 WORKDIR /
 
-ADD https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-$SONAR_SCANNER_VERSION.zip sonar-scanner.zip
-
 USER root
 
-RUN  apt-get install -y software-properties-common zip &&\
+ADD https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-$SONAR_SCANNER_VERSION.zip sonar-scanner.zip
+
+RUN  apt-get install -y zip &&\
      add-apt-repository ppa:openjdk-r/ppa -y &&\
      apt-get -y update &&\
      apt-get install -y openjdk-8-jdk &&\
@@ -20,5 +20,4 @@ RUN  apt-get install -y software-properties-common zip &&\
      chown agent /sonar-scanner-$SONAR_SCANNER_VERSION/bin/
 
 USER agent
-
 WORKDIR myagent
