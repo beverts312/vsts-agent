@@ -1,9 +1,12 @@
 FROM ubuntu:14.04
 
-ARG AGENT_VERSION=2.102.1
+ARG AGENT_VERSION=2.104.0
 
 RUN apt-get update -y &&\
-    apt-get install -y libunwind8 libcurl3 libicu52 curl nodejs &&\
+    apt-get install -y software-properties-common &&\
+    apt-add-repository ppa:git-core/ppa &&\
+    apt-get update -y &&\
+    apt-get install -y libunwind8 libcurl3 libicu52 curl nodejs git &&\
     curl -sL https://deb.nodesource.com/setup_6.x | bash &&\
     curl -fsSL https://experimental.docker.com/ | sh &&\
     apt-get install -y nodejs &&\
