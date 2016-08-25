@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-ARG AGENT_VERSION=2.104.0
+ARG AGENT_VERSION=2.105.2
 
 RUN apt-get update -y &&\
     apt-get install -y software-properties-common &&\
