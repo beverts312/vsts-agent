@@ -1,7 +1,5 @@
 FROM ubuntu:14.04
 
-ARG AGENT_VERSION=2.105.2
-
 RUN apt-get update -y &&\
     apt-get install -y software-properties-common &&\
     apt-add-repository ppa:git-core/ppa &&\
@@ -11,6 +9,8 @@ RUN apt-get update -y &&\
     curl -fsSL https://experimental.docker.com/ | sh &&\
     apt-get install -y nodejs &&\
     mkdir myagent
+
+ARG AGENT_VERSION=2.105.2
 
 ADD https://github.com/Microsoft/vsts-agent/releases/download/v${AGENT_VERSION}/vsts-agent-ubuntu.14.04-x64-${AGENT_VERSION}.tar.gz agent.tar.gz
 ADD init.sh /myagent/init.sh
