@@ -10,6 +10,7 @@ ADD https://github.com/couchbase/couchbase-cli/archive/$COUCHBASE_VERSION.zip co
 
 RUN  apt-get install -y python python-dev python-pip sshpass libffi-dev libssl-dev zip &&\
      curl https://sdk.cloud.google.com | bash &&\
+     npm install -g azure-cli &&\     
      pip install ansible boto httplib2 dnspython &&\
      unzip couchbase-cli.zip &&\
      rm -r couchbase-cli.zip
